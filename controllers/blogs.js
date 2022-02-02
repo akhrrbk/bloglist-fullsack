@@ -1,6 +1,14 @@
 const personRouter = require('express').Router()
 const Blog = require('../models/blog')
 const User = require('../models/user')
+const jwt = require('jsonwebtoken')
+
+const gettokenfrom = req => {
+    const authorization = req.get('authorization')
+    if(authorization && authorization.toLowerCase().startsWith('bearer ')){
+        return authorization.substring(7)
+    }
+}
 
 // GET ALL
 personRouter.get('/', async (req, res) => {
@@ -22,11 +30,17 @@ personRouter.get('/:id', async (req, res) => {
 personRouter.post('/', async (req, res) => {
     const body = req.body
 
-    if((body.author === undefined) || (body.title === undefined) || (body.url === undefined) || (body.userid === undefined)){
+    const token = gettokenfrom(req)
+    const decodedtoken = jwt.verify(token, process.env.SECRET)
+    console.log(process.env.SECRET);
+    if(!decodedtoken.id){
+        return res.status(401).json({error: 'token missing or invalid'})
+    }
+    if((body.author === undefined) || (body.title === undefined) || (body.url === undefined)){
         return res.status(400).json({ error: 'content missing' })
     }
 
-    const user = await User.findById(body.userid)
+    const user = await User.findById(decodedtoken.id)
 
     const blog = new Blog({
         author: body.author,
@@ -34,7 +48,7 @@ personRouter.post('/', async (req, res) => {
         url: body.url,
         likes: body.likes === undefined ? 0 : body.likes,
         date: new Date(),
-        user: body.userid
+        user: user._id
     })
 
     const savedBlog = await blog.save()

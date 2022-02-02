@@ -15,6 +15,14 @@ const errorHandle = (error, req, res, next) => {
         return res.status(400).send({ error: error.message })
     } else if(error.message === 404){
         res.status(404).send({ error: 'unknown endpoint 4004' })
+    } else if (error.name === 'JsonWebTokenError') {
+        return res.status(401).json({
+            error: 'invalid token'
+        })
+    } else if (error.name === 'TokenExpiredError') {
+        return res.status(401).json({
+            error: 'token expired'
+        })
     }
 
     next(error)

@@ -1,9 +1,9 @@
 POST http://localhost:3001/api/blogs
 Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3JuYW1lIjoiYWtocnJiayIsImlkIjoiNjFmYTQ4ZjM0OTFkZmQ0YjhiYzMyYzhhIiwiaWF0IjoxNjQzODAzODc4LCJleHAiOjE2NDM4MDc0Nzh9.-n7dRdkvtMYgCW0bwaKF1WLLnc6L_-o_V0yMlfICOeA
 
 {
     "author": "Axror",
-    "title": "backend internship project",
-    "url": "t.me/akhrrbk",
-    "userid": "61fa48f3491dfd4b8bc32c8a"
+    "title": "adding a new blog with token auth",
+    "url": "akochi"
 }
