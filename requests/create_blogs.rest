@@ -1,0 +1,9 @@
+POST http://localhost:3001/api/blogs
+Content-Type: application/json
+
+{
+    "author": "Axror",
+    "title": "backend internship project",
+    "url": "t.me/akhrrbk",
+    "userid": "61fa48f3491dfd4b8bc32c8a"
+}
