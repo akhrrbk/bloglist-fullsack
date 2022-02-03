@@ -32,9 +32,9 @@ personRouter.post('/', async (req, res) => {
 
     const token = gettokenfrom(req)
     const decodedtoken = jwt.verify(token, process.env.SECRET)
-    console.log(process.env.SECRET);
+    console.log(process.env.SECRET)
     if(!decodedtoken.id){
-        return res.status(401).json({error: 'token missing or invalid'})
+        return res.status(401).json({ error: 'token missing or invalid' })
     }
     if((body.author === undefined) || (body.title === undefined) || (body.url === undefined)){
         return res.status(400).json({ error: 'content missing' })

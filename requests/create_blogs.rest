@@ -1,9 +1,9 @@
 POST http://localhost:3001/api/blogs
 Content-Type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3JuYW1lIjoiYWtocnJiayIsImlkIjoiNjFmYTQ4ZjM0OTFkZmQ0YjhiYzMyYzhhIiwiaWF0IjoxNjQzODAzODc4LCJleHAiOjE2NDM4MDc0Nzh9.-n7dRdkvtMYgCW0bwaKF1WLLnc6L_-o_V0yMlfICOeA
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3JuYW1lIjoiYXppa28iLCJpZCI6IjYxZmI2Mjc1MWExZGJkNjEzNTQ1YzIwNCIsImlhdCI6MTY0Mzg2NTA1NCwiZXhwIjoxNjQzODY4NjU0fQ.vQlsevHILFkyYbPbirjkh6DxYepy-msrBigg4havO0g
 
 {
-    "author": "Axror",
-    "title": "adding a new blog with token auth",
-    "url": "akochi"
+    "author": "Aziz",
+    "title": "2. adding a new blog with token auth, salom",
+    "url": "zzz"
 }

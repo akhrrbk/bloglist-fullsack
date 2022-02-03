@@ -10,7 +10,7 @@ loginRouter.get('/', (req, res) => {
 loginRouter.post('/', async (req, res) => {
     const body = req.body
 
-    const user = await User.findOne({username: body.username})
+    const user = await User.findOne({ username: body.username })
     const passwordcorrect = user === null ? false : bcrypt.compare(body.password, user.passwordHash)
 
     if(!(user && passwordcorrect)){

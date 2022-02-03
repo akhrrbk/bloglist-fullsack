@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const config = require('../utils/config')
-const uniqueValidator = require('mongoose-unique-validator')
+// const uniqueValidator = require('mongoose-unique-validator')
 
 const url = config.MONGODB_URI
 
@@ -28,7 +28,7 @@ const userSchema = new mongoose.Schema({
     ]
 })
 
-userSchema.plugin(uniqueValidator)
+// userSchema.plugin(uniqueValidator)
 
 userSchema.set('toJSON', {
     transform: (document, returnedObject) => {
